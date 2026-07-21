@@ -1,0 +1,79 @@
+Spring Container Starts
+        │
+        ▼
+1. Bean Definition Loaded
+   - Spring scans @Component classes or @Bean methods.
+
+        │
+        ▼
+2. Bean Object Creation
+   - Constructor is called.
+   - Object is created.
+
+        │
+        ▼
+3. Dependency Injection
+   - @Autowired
+   - Constructor Injection
+   - Setter Injection
+   - Field Injection
+
+        │
+        ▼
+4. Aware Interfaces (if implemented)
+   - BeanNameAware
+   - BeanClassLoaderAware
+   - BeanFactoryAware
+   - EnvironmentAware
+   - EmbeddedValueResolverAware
+   - ResourceLoaderAware
+   - ApplicationEventPublisherAware
+   - MessageSourceAware
+   - ApplicationContextAware
+
+        │
+        ▼
+5. BeanPostProcessor (Before Initialization)
+   - postProcessBeforeInitialization()
+
+        │
+        ▼
+6. Initialization Callbacks
+   (Any one or more can execute)
+
+   ✔ @PostConstruct
+   ✔ InitializingBean.afterPropertiesSet()
+   ✔ initMethod (configured in @Bean)
+
+        │
+        ▼
+7. BeanPostProcessor (After Initialization)
+   - postProcessAfterInitialization()
+
+        │
+        ▼
+8. Bean Ready
+   - Bean is fully initialized.
+   - Business methods can now be called.
+
+        │
+        ▼
+9. Bean is Used
+   - Example:
+     cartService.addToCart();
+
+        │
+        ▼
+10. Spring Container Shutdown
+
+        │
+        ▼
+11. Destruction Callbacks
+
+   ✔ @PreDestroy
+   ✔ DisposableBean.destroy()
+   ✔ destroyMethod (configured in @Bean)
+
+        │
+        ▼
+Bean Removed from Container
