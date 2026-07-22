@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    Value Pass -->
+<!--    <bean id="paymentService" class="org.example.payment.PaymentService">-->
+<!--        <constructor-arg name="type" value="UPI"/>-->
+<!--        <constructor-arg name="retryCount" index="1" value="3"/>-->
+<!--        <constructor-arg index="0" value="UPI"/>-->
+<!--        <constructor-arg index="1" value="3"/>-->
+<!--    </bean>-->
+
+    <!--    Dependency Inject-->
+<!--    <bean id="orderService"-->
+<!--          class="org.example.OrderService">-->
+<!--        <constructor-arg ref="paymentService"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="orderService" class="org.example.OrderService">-->
+<!--    <property name="PaymentService" ref="paymentService"/>-->
+<!--   </bean>-->
+
+
+    <!--    <bean id="orderService"-->
+<!--          name="orderServiceBean, orderServiceBean2, orderServiceBean3"-->
+<!--          class="org.example.OrderService">-->
+<!--    </bean>-->
+
+<!--    <bean id="orderService2" class="org.example.OrderService"/>-->
+
+    <bean id="upiPaymentService" class="org.example.payment.UPIPaymentService"/>
+
+<!--    <bean id="cardPaymentService" class="org.example.payment.CardPaymentService"/>-->
+
+<!--    <bean id="orderService" class="org.example.OrderService">-->
+<!--        <constructor-arg ref="cardPaymentService"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="userService" class="org.example.UserService">-->
+<!--        <constructor-arg name="usernames">-->
+<!--                <list>-->
+<!--                    <value>Kshitij</value>-->
+<!--                    <value>Mrunali</value>-->
+<!--                    <value>Manisha</value>-->
+<!--                </list>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+
+</beans>
+
+
+<!--DI Inject Only through Constructor or Setters not field.-->
+<!--        name -> we can use same name, also we set multiple name for 1 bean-->
+<!--        id -> unique-->
