@@ -1,0 +1,17 @@
+#spring:
+#  application:
+#    name: Lecture18-ProfileAndYAMLDemo
+#
+#server:
+#  port: 9090
+#
+#app:
+#  welcome:
+#    message: Hello, welcome  to my application
+#    code: 200
+#    users: Kshitij, Rajendra, Varshikar
+#
+## Tree Structure - yml
+## Flat Structure - application.properties
+#
+## If both exist so application.properties is priorties.
