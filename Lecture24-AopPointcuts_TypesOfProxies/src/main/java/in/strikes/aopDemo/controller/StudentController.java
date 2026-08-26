@@ -2,6 +2,7 @@ package in.strikes.aopDemo.controller;
 
 import in.strikes.aopDemo.dto.Student;
 import in.strikes.aopDemo.service.StudentService;
+import in.strikes.aopDemo.service.StudentServiceInterface;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/students")
 public class StudentController {
 
-    private StudentService studentService;
+    private StudentServiceInterface studentService;
 
-    public StudentController(StudentService studentService) {
+    public StudentController(StudentServiceInterface studentService) {
         this.studentService = studentService;
     }
 
@@ -22,8 +23,8 @@ public class StudentController {
     }
 
     @GetMapping
-    public ResponseEntity<String> dummyMethod() {
-        String s = "kshitij";
-        return ResponseEntity.ok(studentService.dummyMethod(s));
+    public ResponseEntity<String> getStudenet() {
+        String s = "All Student Data";
+        return ResponseEntity.ok(studentService.getStudent(s));
     }
 }
