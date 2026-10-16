@@ -1,25 +1,27 @@
 package org.example;
 
-import org.example.notification.NotificationService;
-import org.example.notification.PopUpNotificationService;
-import org.example.notification.SmsService;
+import org.example.Payment.PaymentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderService {
 
-    NotificationService notificationService;
+    PaymentService paymentService;
 
-    public OrderService(NotificationService notificationService) {
-        this.notificationService = notificationService;
-    }
-//    public OrderService() {
+//    public OrderService(@Qualifier("up") PaymentService paymentService) {
+//        this.paymentService = paymentService;
 //    }
 
-    public void placeOrder() {
-        System.out.println("Placed Order");
-        notificationService.sendNotification();
+
+    @Autowired
+    public void setPaymentService(PaymentService paymentService) {
+        this.paymentService = paymentService;
     }
-//
-//    public void setNotificationService(NotificationService notificationService) {
-//        this.notificationService = notificationService;
-//    }
+
+    public void orderPlaced() {
+        paymentService.pay();
+        System.out.println("Order-Placed");
+    }
 }

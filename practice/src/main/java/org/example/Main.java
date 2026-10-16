@@ -1,20 +1,19 @@
 package org.example;
 
-import org.example.notification.FakeEmailService;
-import org.example.notification.NotificationService;
-import org.example.notification.PopUpNotificationService;
-import org.example.notification.SmsService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 public class Main {
     public static void main(String[] args) {
-        NotificationService notificationService = new SmsService();
+        ApplicationContext context = new AnnotationConfigApplicationContext(Appconfig.class);
 
-        OrderService order = new OrderService(notificationService);
-//
-//        order.setNotificationService(notificationService);
-        order.placeOrder();
+//        OrderService orderService = context.getBean(OrderService.class);
+//        orderService.orderPlaced();
+
+        User user = context.getBean(User.class);
+        System.out.println(user.getName());
 
     }
 }
-
 
